@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <h1>Games</h1>
+
+    <form class="filter" action="index.html" method="post">
+
+      <label>Genre:
+        <select class="genre" name="genre">
+
+          <option value="all">All</option>
+
+          {% for genre in genres %}
+            <option value="{{ genre }}">genre</option>
+          {% endfor %}
+        </select>
+      </label>
+    </form>
+
+    <section class="game-list">
+
+      {% for game in games %}
+        <div class="game">
+          {{ game }}
+        </div>
+      {% endfor %}
+    </section>
+  </body>
+</html>
