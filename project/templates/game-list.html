@@ -9,18 +9,20 @@
 
     <h1>Games</h1>
 
-    <form class="filter" action="index.html" method="post">
+    <form class="filter" action="/" method="post">
 
       <label>Genre:
         <select class="genre" name="genre">
 
-          <option value="all">All</option>
+          <option value=0>All</option>
 
           {% for genre in genres %}
-            <option value="{{ genre.name }}">genre</option>
+            <option value="{{ genre.id }}">{{ genre.name }}</option>
           {% endfor %}
         </select>
       </label>
+
+      <input type="submit" name="filter" value="Filter">
     </form>
 
     <section class="game-list">
