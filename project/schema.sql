@@ -3,9 +3,10 @@ DROP TABLE IF EXISTS posts;
 DROP TABLE IF EXISTS comments;
 DROP TABLE IF EXISTS games;
 DROP TABLE IF EXISTS genres;
+DROP TABLE IF EXISTS games_genres;
 
 CREATE TABLE users (
-  id bigserial PRIMARY KEY,
+  id integer PRIMARY KEY AUTOINCREMENT,
   username varchar(50) NOT NULL,
   password varchar(50) NOT NULL,
   email varchar(50),
@@ -14,7 +15,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE posts (
-  id bigserial PRIMARY KEY,
+  id integer PRIMARY KEY AUTOINCREMENT,
   user_id integer REFERENCES users (id),
   game_id integer REFERENCES games (id),
   title varchar(100),
@@ -22,7 +23,7 @@ CREATE TABLE posts (
 );
 
 CREATE TABLE comments (
-  id bigserial PRIMARY KEY,
+  id integer PRIMARY KEY AUTOINCREMENT,
   user_id integer REFERENCES users (id),
   post_id integer REFERENCES posts (id),
   comment_id integer,
@@ -31,15 +32,18 @@ CREATE TABLE comments (
 );
 
 CREATE TABLE games (
-  id bigserial PRIMARY KEY,
+  id integer PRIMARY KEY AUTOINCREMENT,
   title varchar(50),
   description varchar(300)
 );
 
 CREATE TABLE genres (
-  id bigserial PRIMARY KEY,
+  id integer PRIMARY KEY AUTOINCREMENT,
   name varchar(20)
 );
 
-INSERT INTO users(id, username, password, email, phone, role)
-VALUES (1, 'JohnSmith01', 'password', 'example@email.com', '123-1234', 0);
+CREATE TABLE games_genres (
+  id integer PRIMARY KEY AUTOINCREMENT,
+  game_id bigint REFERENCES games (id),
+  genre_id bigint REFERENCES genres (id)
+)

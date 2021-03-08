@@ -6,7 +6,7 @@
     {% block head %}
     <title>{% block title %}{% endblock %}</title>
 
-    <link rel="stylesheet" href="/../../static/styles.css" type="text/css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 
     {% endblock %}
   </head>
