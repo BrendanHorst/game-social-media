@@ -1,5 +1,8 @@
 --Mock data for development purposes
 
+INSERT INTO users(id, username, password, email, phone, role)
+VALUES (1, 'JohnSmith01', 'password', 'example@email.com', '123-1234', 0);
+
 INSERT INTO games (title)
 VALUES ('Super Smash Bros'),
        ('Xenoblade Chronicles'),
