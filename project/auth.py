@@ -29,7 +29,7 @@ def login():
         if error is None:
             session.clear()
             session['id'] = user['id']
-            return redirect(url_for('main.index'))
+            return redirect(url_for('index'))
         flash(error)
 
     return render_template('layouts/auth.html')
@@ -38,7 +38,7 @@ def login():
 @bp.route('/logout')
 def logout():
     session.clear()
-    return redirect(url_for('main.index'))
+    return redirect(url_for('index'))
 
 
 @bp.before_app_request
