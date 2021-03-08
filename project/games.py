@@ -4,8 +4,15 @@ from flask import Blueprint, g, render_template
 
 from project.db import get_db
 
-bp = Blueprint('games', __name__, url_prefix='/games')
+bp = Blueprint('games', __name__)
 
-@bp.route('/list', methods=('GET', 'POST'))
+@bp.route('/', methods=('GET', 'POST'))
 def game_list():
-    pass
+
+    db = get_db()
+
+    games = db.execute('SELECT * FROM games').fetchall()
+
+    genres = db.execute('SELECT * FROM genres').fetchall()
+
+    return render_template('/game-list.html', games=games, genres=genres)
