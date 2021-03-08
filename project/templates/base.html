@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    {% block head %}
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="/../../static/styles.css" type="text/css" />
+
+    {% endblock %}
+  </head>
+  <body>
+    <header>
+      <div class="namebar">
+      {% if g.user %}
+      <li class="namebar-item"><span class="namebar-name">{{ g.user['name'] }}</span>
+      <a class="namebar-logout" href="{{url_for('auth.logout')}}">log out</a></li>
+      {% endif %}
+        }
+    </script> </li>
+      </div>
+
+      <h1>{{ self.title() }}</h1>
+      {% if g.user %}
+        {% endif %}
+      {% endif %}
+    </header>
+
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+    <footer>
+
+      <h2>Contact Us</h2>
+      <address>
+        <p>email</p>
+        <p>socials</p>
+        <p><a href="">link</a></p>
+      </address>
+    </footer>
+  </body>
+</html>
