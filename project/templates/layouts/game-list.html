@@ -1,35 +1,27 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-  </head>
-  <body>
+{% extends "base.html" %}
+{% block content %}
+  <h1>Games</h1>
 
-    <h1>Games</h1>
+  <form class="filter" action="/" method="post">
 
-    <form class="filter" action="/" method="post">
+    <label>Genre:
+      <select class="genre" name="genre">
 
-      <label>Genre:
-        <select class="genre" name="genre">
+        <option value=0>All</option>
 
-          <option value=0>All</option>
+        {% for genre in genres %}
+        <option value="{{ genre.id }}">{{ genre.name }}</option>
+        {% endfor %}
+      </select>
+    </label>
 
-          {% for genre in genres %}
-            <option value="{{ genre.id }}">{{ genre.name }}</option>
-          {% endfor %}
-        </select>
-      </label>
+    <input type="submit" name="filter" value="Filter">
+  </form>
 
-      <input type="submit" name="filter" value="Filter">
-    </form>
+  <section class="game-list">
 
-    <section class="game-list">
-
-      {% for game in games %}
-        <a class="game" href="#">{{ game.title }}</a>
-      {% endfor %}
-    </section>
-  </body>
-</html>
+    {% for game in games %}
+    <a class="game" href="#">{{ game.title }}</a>
+    {% endfor %}
+  </section>
+{% endblock %}
