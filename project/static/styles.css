@@ -1,0 +1,13 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+section {
+  margin-top: 1rem;
+}
+
+a.game {
+  background-color: lightgray;
+}
