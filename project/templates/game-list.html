@@ -16,7 +16,7 @@
           <option value="all">All</option>
 
           {% for genre in genres %}
-            <option value="{{ genre }}">genre</option>
+            <option value="{{ genre.name }}">genre</option>
           {% endfor %}
         </select>
       </label>
@@ -25,9 +25,7 @@
     <section class="game-list">
 
       {% for game in games %}
-        <div class="game">
-          {{ game }}
-        </div>
+        <a class="game" href="#">{{ game.title }}</a>
       {% endfor %}
     </section>
   </body>

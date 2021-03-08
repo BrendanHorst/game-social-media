@@ -36,7 +36,21 @@ def init_db_command():
     click.echo('Initialized the database.')
 
 
+def mock_data():
+    db = get_db()
+
+    with current_app.open_resource('data.sql') as f:
+        db.executescript(f.read().decode('utf8'))
+
+@click.command('mock-data')
+@with_appcontext
+def mock_data_command():
+    """Insert mock data from data.sql"""
+    mock_data()
+    click.echo('Inserted mock data.')
+
 #Registers close_db and init_db with the applicatoin
 def init_app(app):
     app.teardown_appcontext(close_db)
     app.cli.add_command(init_db_command)
+    app.cli.add_command(mock_data_command)
