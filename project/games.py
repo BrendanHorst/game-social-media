@@ -30,4 +30,4 @@ def game_list():
 
     genres = db.execute('SELECT * FROM genres').fetchall()
 
-    return render_template('/game-list.html', games=games, genres=genres)
+    return render_template('layouts/game-list.html', games=games, genres=genres)
