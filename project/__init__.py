@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask
+from flask import (Flask , render_template, Blueprint)
 
 
 def create_app(test_config=None):
@@ -23,8 +23,13 @@ def create_app(test_config=None):
         return 'Hello, World!'
 
 
-
     from . import db
     db.init_app(app)
+
+    from . import auth
+    app.register_blueprint(auth.bp)
+
+    from . import index
+    app.register_blueprint(index.bp)
 
     return app

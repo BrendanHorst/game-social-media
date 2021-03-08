@@ -40,3 +40,6 @@ CREATE TABLE genres (
   id bigserial PRIMARY KEY,
   name varchar(20)
 );
+
+INSERT INTO users(id, username, password, email, phone, role)
+VALUES (1, 'JohnSmith01', 'password', 'example@email.com', '123-1234', 0);
