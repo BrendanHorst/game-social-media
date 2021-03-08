@@ -47,3 +47,6 @@ CREATE TABLE games_genres (
   game_id bigint REFERENCES games (id),
   genre_id bigint REFERENCES genres (id)
 )
+
+INSERT INTO users(id, username, password, email, phone, role)
+VALUES (1, 'JohnSmith01', 'password', 'example@email.com', '123-1234', 0);

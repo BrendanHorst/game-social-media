@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask
+from flask import (Flask , render_template, Blueprint)
 
 
 def create_app(test_config=None):
@@ -29,5 +29,11 @@ def create_app(test_config=None):
     from . import games
     app.register_blueprint(games.bp)
     app.add_url_rule('/', endpoint="index")
+
+    from . import auth
+    app.register_blueprint(auth.bp)
+
+    from . import index
+    app.register_blueprint(index.bp)
 
     return app
