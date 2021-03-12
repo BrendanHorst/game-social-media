@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    {% block head %}
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    {% endblock %}
+  </head>
+  <body>
+    <header>
+      <div class="namebar">
+      {% if g.user %}
+      <li class="namebar-item"><span class="namebar-name">{{ g.user['username'] }}</span>
+      <a class="namebar-logout" href="{{url_for('auth.logout')}}">log out</a></li>
+      {% endif %}
+    </script> </li>
+      </div>
+
+      <h1>{{ self.title() }}</h1>
+      {% if g.user %}
+      {% endif %}
+    </header>
+
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+    {% for message in get_flashed_messages() %}
+          <p class="flash">{{ message }}</p>
+    {% endfor %}
+    <footer>
+      <h2>Contact Us</h2>
+      <address>
+        <p>email</p>
+        <p>socials</p>
+        <p><a href="">link</a></p>
+      </address>
+    </footer>
+  </body>
+</html>
