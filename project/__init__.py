@@ -34,6 +34,6 @@ def create_app(test_config=None):
     app.register_blueprint(auth.bp)
 
     from . import posts
-    app.register_blueprint(games.bp)
+    app.register_blueprint(posts.bp)
 
     return app

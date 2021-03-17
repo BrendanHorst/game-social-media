@@ -1,4 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 
+  <h1>{{ game.title }}</h1>
+  <p>{{ game.description }}</p>
+
+  {% if posts == [] %}
+    <p>No posts yet!</p>
+  {% endif %}
+
+  {% for post in posts %}
+
+    <section class='post'>
+
+      <p>{{ post.username }}</p>
+      <h2>{{ post.title }}</h2>
+      <p>{{ post.body }}</p>
+    </section>
+  {% endfor %}
+
 {% endblock %}
