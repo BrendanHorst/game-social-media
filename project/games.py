@@ -24,7 +24,7 @@ def game_list():
 
     else:
         games = db.execute(
-            'SELECT title FROM games'
+            'SELECT id, title FROM games'
             ).fetchall()
 
     genres = db.execute('SELECT * FROM genres').fetchall()
