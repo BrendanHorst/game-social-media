@@ -14,7 +14,6 @@ def game_list():
     if request.method == 'POST':
 
         genre = request.form['genre']
-        print(genre)
 
     db = get_db()
 
@@ -25,7 +24,7 @@ def game_list():
 
     else:
         games = db.execute(
-            'SELECT title FROM games'
+            'SELECT id, title FROM games'
             ).fetchall()
 
     genres = db.execute('SELECT * FROM genres').fetchall()
