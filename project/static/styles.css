@@ -8,6 +8,12 @@ section {
   margin-top: 1rem;
 }
 
+section.post {
+  border: 1px solid black;
+  padding: 0 1rem 1rem 1rem;
+  width: 50%;
+}
+
 a.game {
   background-color: lightgray;
 }
