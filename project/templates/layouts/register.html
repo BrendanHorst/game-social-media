@@ -9,10 +9,10 @@
 		<div class="register">
 			<h1>Register</h1>
 			<div class="links">
-				<a href="{{ url_for('login') }}">Login</a>
-				<a href="{{ url_for('register') }}" class="active">Register</a>
+				<a href="{{ url_for('auth.login') }}">Login</a>
+				<a href="{{ url_for('auth.register') }}" class="active">Register</a>
 			</div>
-			<form action="{{ url_for('register') }}" method="post" autocomplete="off">
+			<form action="{{ url_for('auth.register') }}" method="post" autocomplete="off">
 				<label for="username">
 				</label>
 				<input type="text" name="username" placeholder="Username" id="username" required>
