@@ -16,7 +16,7 @@ def post_list(game_id):
 
     return render_template("layouts/posts.html", posts=posts, game=game)
 
-@bp.route('/user/<int:user_id>/', methods=('GET'))
+@bp.route('/user/<int:user_id>/', methods=('GET',))
 def profile(user_id):
 
     db = get_db()
