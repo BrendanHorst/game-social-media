@@ -15,3 +15,12 @@ def post_list(game_id):
     game = db.execute("SELECT * FROM games WHERE id = ?", str(game_id)).fetchone()
 
     return render_template("layouts/posts.html", posts=posts, game=game)
+
+@bp.route('/user/<int:user_id>/', methods=('GET'))
+def profile(user_id):
+
+    db = get_db()
+
+    posts = db.execute("SELECT username, title, body FROM posts JOIN users ON user_id=users.id WHERE users.id = ?", str(user_id)).fetchall()
+
+    return render_template("layouts/profile.html", posts=posts)
