@@ -32,6 +32,12 @@ section.post {
   padding: 0 1rem 1rem 1rem;
 }
 
+p.no-posts {
+  margin-top: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
 section.game-list {
   display: flex;
   flex-wrap: wrap;

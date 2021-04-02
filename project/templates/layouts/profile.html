@@ -6,7 +6,7 @@
   <h1>Posts by {{ posts[0].username }}</h1>
 
   {% if posts == [] %}
-    <p>No posts yet!</p>
+    <p class="no-posts">No posts yet!</p>
   {% endif %}
 
   {% for post in posts %}
