@@ -3,7 +3,7 @@
 
   <a href="{{ url_for('index') }}">Back</a>
 
-  <h1>Posts by {{ posts[0].username }}</h1>
+  <h1>Posts by {{ user.username }}</h1>
 
   {% if posts == [] %}
     <p class="no-posts">No posts yet!</p>
@@ -13,6 +13,7 @@
 
     <section class='post'>
 
+      <p>Posted under <a href="{{ url_for('posts.post_list', game_id=post.id)}}">{{ post.game }}</a></p>
       <h2>{{ post.title }}</h2>
       <p>{{ post.body }}</p>
     </section>

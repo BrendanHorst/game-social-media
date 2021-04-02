@@ -21,6 +21,8 @@ def profile(user_id):
 
     db = get_db()
 
-    posts = db.execute("SELECT username, title, body FROM posts JOIN users ON user_id=users.id WHERE users.id = ?", str(user_id)).fetchall()
+    user = db.execute("SELECT username FROM users WHERE id = ?", str(user_id)).fetchone()
 
-    return render_template("layouts/profile.html", posts=posts)
+    posts = db.execute("SELECT posts.title, body, games.title AS game, games.id FROM posts JOIN games ON posts.game_id=games.id WHERE posts.user_id = ?", str(user_id)).fetchall()
+
+    return render_template("layouts/profile.html", posts=posts, user=user)
