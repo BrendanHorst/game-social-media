@@ -14,7 +14,7 @@
 
     <section class='post'>
 
-      <p class='author'>Posted by {{ post.username }}</p>
+      <p class='author'>Posted by <a href="{{ url_for('posts.profile', user_id=post.id)}}">{{ post.username }}</a></p>
       <h2>{{ post.title }}</h2>
       <p>{{ post.body }}</p>
     </section>

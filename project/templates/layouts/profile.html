@@ -3,6 +3,8 @@
 
   <a href="{{ url_for('index') }}">Back</a>
 
+  <h1>Posts by {{ posts[0].username }}</h1>
+
   {% if posts == [] %}
     <p>No posts yet!</p>
   {% endif %}
@@ -11,7 +13,6 @@
 
     <section class='post'>
 
-      <p class='author'>Posted by {{ post.username }}</p>
       <h2>{{ post.title }}</h2>
       <p>{{ post.body }}</p>
     </section>

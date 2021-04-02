@@ -19,7 +19,7 @@ def game_list():
 
     if genre != "0":
         games = db.execute(
-            'SELECT title FROM games JOIN games_genres ON games.id = game_id WHERE genre_id = ?', genre
+            'SELECT games.id, title FROM games JOIN games_genres ON games.id = game_id WHERE genre_id = ?', genre
             ).fetchall()
 
     else:

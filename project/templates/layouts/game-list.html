@@ -21,7 +21,7 @@
   <section class="game-list">
 
     {% for game in games %}
-    <a class="game" href="{{ url_for('posts.post_list', game_id=game.id) }}">{{ game.title }}</a>
+      <a class="game" href="{{ url_for('posts.post_list', game_id=game.id) }}">{{ game.title }}</a>
     {% endfor %}
   </section>
 {% endblock %}
