@@ -4,16 +4,53 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: skyblue;
+}
+
+main {
+  background-color: lightgray;
+  width: 60%;
+  margin: auto;
+  padding: 1rem;
+}
+
+footer {
+  background-color: white;
+  margin: 1rem 0 1rem 0;
+  padding: 1rem;
+}
+
 section {
   margin-top: 1rem;
 }
 
 section.post {
+  background-color: white;
   border: 1px solid black;
+  margin: 1rem;
   padding: 0 1rem 1rem 1rem;
-  width: 50%;
+}
+
+p.no-posts {
+  margin-top: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+section.game-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 a.game {
-  background-color: lightgray;
+  align-items: center;
+  background-color: white;
+  border: 1px solid black;
+  display: flex;
+  height: 10rem;
+  justify-content: center;
+  margin-top: 1rem;
+  width: 10rem;
 }
