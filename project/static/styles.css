@@ -38,6 +38,13 @@ p.no-posts {
   text-align: center;
 }
 
+section.comment {
+  background-color: white;
+  border: 1px solid black;
+  margin: 0 2rem 0 2rem;
+  padding: 0 1rem 0 1rem;
+}
+
 section.game-list {
   display: flex;
   flex-wrap: wrap;

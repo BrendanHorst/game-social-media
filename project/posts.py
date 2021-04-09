@@ -16,6 +16,21 @@ def post_list(game_id):
 
     return render_template("layouts/posts.html", posts=posts, game=game)
 
+
+@bp.route('/<int:game_id>/posts/<int:post_id>', methods=('GET', 'POST'))
+def comments(game_id, post_id):
+
+    db = get_db()
+
+    post = db.execute("SELECT username, users.id, title, body, game_id FROM posts JOIN users ON user_id=users.id WHERE posts.id = ?", str(post_id)).fetchone()
+
+    game = db.execute("SELECT id, title FROM games WHERE id = ?", str(post['game_id'])).fetchone()
+
+    comments = db.execute("SELECT content, username, users.id FROM comments JOIN users ON user_id=users.id WHERE post_id = ?", str(post_id)).fetchall()
+
+    return render_template("layouts/comments.html", post=post, comments=comments, game=game)
+
+
 @bp.route('/user/<int:user_id>/', methods=('GET',))
 def profile(user_id):
 

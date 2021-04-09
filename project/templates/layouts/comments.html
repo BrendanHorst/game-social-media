@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <a href="{{ url_for('index') }}">Back</a>
+
+  <section class='post'>
+
+    <p>Posted under <a href="{{ url_for('posts.post_list', game_id=game.id)}}">{{ game.title }}</a>
+      <br>by <a href="{{ url_for('posts.profile', user_id=post.id)}}">{{ post.username }}</a>
+    </p>
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.body }}</p>
+  </section>
+
+  <section>
+
+    {% if comments == [] %}
+      <p class="no-posts">No comments yet!</p>
+    {% endif %}
+
+    {% for comment in comments %}
+
+      <section class='comment'>
+        <p><a href="{{ url_for('posts.profile', user_id=comment.id)}}">{{ comment.username }}</a></p>
+        <p>{{ comment.content }}</p>
+      </section>
+    {% endfor %}
+  </section>
+
+{% endblock %}
