@@ -25,6 +25,13 @@
         <p>{{ comment.content }}</p>
       </section>
     {% endfor %}
+
+    <form class="create-comment" action="posts.comments" method="post">
+
+      <textarea name="comment" rows="2" cols="80"></textarea>
+
+      <input type="submit" name="submit" value="Comment">
+    </form>
   </section>
 
 {% endblock %}
