@@ -26,12 +26,14 @@
       </section>
     {% endfor %}
 
-    <form class="create-comment" method="post">
+    {% if g.user %}
+      <form class="create-comment" method="post">
 
-      <textarea name="comment" rows="2" cols="80"></textarea>
+        <textarea name="comment" rows="2" cols="80" placeholder="Leave a comment"></textarea>
 
-      <input type="submit" name="submit" value="Comment">
-    </form>
+        <input type="submit" name="submit" value="Comment">
+      </form>
+    {% endif %}
   </section>
 
 {% endblock %}
