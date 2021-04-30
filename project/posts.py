@@ -19,9 +19,21 @@ def post_list(game_id):
 
 @bp.route('/<int:game_id>/posts/<int:post_id>', methods=('GET', 'POST'))
 def comments(game_id, post_id):
+    """Displays a specific post and handles creating and viewing comments on that post"""
 
     db = get_db()
 
+    if (request.method == 'POST') and (g.user != None):
+        #If there is a post request and the user is logged in, insert their comment into the database
+
+        comment = request.form['comment']
+
+        print('hi')
+
+        db.execute("INSERT INTO comments(user_id, post_id, comment_id, content, hidden) VALUES (?, ?, NULL, ?, 0)", (g.user['id'], post_id, comment))
+
+
+    #Retrieve all of the necessary data for the page
     post = db.execute("SELECT username, users.id, title, body, game_id FROM posts JOIN users ON user_id=users.id WHERE posts.id = ?", str(post_id)).fetchone()
 
     game = db.execute("SELECT id, title FROM games WHERE id = ?", str(post['game_id'])).fetchone()
