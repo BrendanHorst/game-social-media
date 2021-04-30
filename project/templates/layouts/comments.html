@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-  <a href="{{ url_for('index') }}">Back</a>
+  <a href="{{ url_for('posts.post_list', game_id=game.id) }}">Back</a>
 
   <section class='post'>
 

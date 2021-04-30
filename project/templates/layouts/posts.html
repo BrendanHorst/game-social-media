@@ -15,7 +15,7 @@
     <section class='post'>
 
       <p class='author'>Posted by <a href="{{ url_for('posts.profile', user_id=post.id)}}">{{ post.username }}</a></p>
-      <h2>{{ post.title }}</h2>
+      <h2><a href="{{ url_for('posts.comments', game_id=game.id, post_id=post.id)}}">{{ post.title }}</a></h2>
       <p>{{ post.body }}</p>
     </section>
   {% endfor %}
