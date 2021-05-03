@@ -3,10 +3,11 @@ import sqlite3
 from flask import Blueprint, g, render_template, request
 
 from project.db import get_db
-
+from project.auth import ban_check
 bp = Blueprint('games', __name__)
 
 @bp.route('/', methods=('GET', 'POST'))
+@ban_check
 def game_list():
 
     genre = "0"
