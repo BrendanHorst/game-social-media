@@ -2,7 +2,8 @@
 
 INSERT INTO users(id, username, password, email, phone, role)
 VALUES (1, 'JohnSmith01', 'password', 'example@email.com', '123-1234', 0),
-(2, 'baned', 'baned1', 'baned@email.com', '321-4321', 2);
+(2, 'baned', 'baned1', 'baned@email.com', '321-4321', 2),
+(3, 'admin1', 'password', 'admin@email.com', '111-1111', 1);
 
 INSERT INTO posts(user_id, game_id, title, body)
 VALUES (1, 1, 'Title', 'This is a test post for testing purposes'),
