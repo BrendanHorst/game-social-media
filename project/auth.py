@@ -40,7 +40,7 @@ def register():
             msg = 'Please fill out the form!'
         else:
 
-            cursor.execute('INSERT INTO users (username, password, email, role) VALUES (?, ?, ?, 1)', (username, password, email,))
+            cursor.execute('INSERT INTO users (username, password, email, role) VALUES (?, ?, ?, 0)', (username, password, email,))
             cursor.commit()
             msg = 'You have successfully registered!'
     elif request.method == 'POST':
