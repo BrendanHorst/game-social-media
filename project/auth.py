@@ -91,7 +91,6 @@ def load_logged_in_user():
         user = db.execute(
             'SELECT * FROM users WHERE id = ?', (user_id,)
         ).fetchone()
-        print(user['username'])
         g.user = user
 
 

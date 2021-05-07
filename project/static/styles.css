@@ -10,6 +10,8 @@ body {
 
 main {
   background-color: lightgray;
+  border: 1px solid #009ede;
+  border-radius: 2px;
   width: 60%;
   margin: auto;
   padding: 1rem;
@@ -54,6 +56,10 @@ form.create-comment {
   margin: 1rem 2rem 1rem 2rem;
 }
 
+div.description {
+  margin-bottom: 4rem;
+}
+
 section.game-list {
   display: flex;
   flex-wrap: wrap;
@@ -71,6 +77,13 @@ a.game {
   width: 10rem;
 }
 
+a.game:hover {
+  box-shadow: 2px 2px 2px black;
+}
+
+a.game:active {
+  box-shadow: inset 2px 2px 2px black;
+}
 div.namebar {
   margin: 1rem;
 }

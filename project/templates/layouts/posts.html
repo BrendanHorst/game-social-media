@@ -3,8 +3,13 @@
 
   <a href="{{ url_for('index') }}">Back</a>
 
-  <h1>{{ game.title }}</h1>
-  <p>{{ game.description }}</p>
+  <div class="description">
+
+    <h1>{{ game.title }}</h1>
+
+    <p>{{ game.description }}</p>
+    
+  </div>
 
   {% if posts == [] %}
     <p class="no-posts">No posts yet!</p>
