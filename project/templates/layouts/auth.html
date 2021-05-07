@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Log In</h1>
-<form class="login" method="post">
-  <label class="form-label" for="username">Username</label>
-  <input type="text" name="username" required>
-  <label class="form-label" for="password">Password</label>
-  <input type="text" name="password" required>
-  <input type="submit" type="submit" value="login">
-</form>
+<div class="login">
+  <h1>Log In</h1>
+  <form class="login" method="post">
+    <label class="form-label" for="username">Username</label>
+    <input type="text" name="username" required>
+    <label class="form-label" for="password">Password</label>
+    <input type="text" name="password" required>
+    <input type="submit" type="submit" value="login">
+  </form>
+</div>
 {% endblock %}

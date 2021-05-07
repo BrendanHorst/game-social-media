@@ -103,3 +103,25 @@ li.namebar-item {
 .header-button:hover {
   background-color: white;
 }
+
+form.login,
+form.register {
+  display: flex;
+  flex-direction: column;
+}
+
+form.login label,
+form.login input[type='submit'],
+form.register label,
+form.register input[type='submit'] {
+  margin-top: 1rem;
+}
+
+div.login,
+div.register {
+  background-color: #bdecff;
+  border: 1px solid gray;
+  margin: 2rem auto;
+  padding: 1rem;
+  width: 50%;
+}
