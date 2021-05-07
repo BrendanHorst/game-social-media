@@ -10,6 +10,8 @@ body {
 
 main {
   background-color: lightgray;
+  border: 1px solid #009ede;
+  border-radius: 2px;
   width: 60%;
   margin: auto;
   padding: 1rem;
@@ -38,6 +40,26 @@ p.no-posts {
   text-align: center;
 }
 
+section.comment {
+  background-color: white;
+  border: 1px solid black;
+  margin: 0 2rem 0 2rem;
+  padding: 0 1rem 0 1rem;
+}
+
+textarea {
+  resize: none;
+  width: 100%;
+}
+
+form.create-comment {
+  margin: 1rem 2rem 1rem 2rem;
+}
+
+div.description {
+  margin-bottom: 4rem;
+}
+
 section.game-list {
   display: flex;
   flex-wrap: wrap;
@@ -53,4 +75,60 @@ a.game {
   justify-content: center;
   margin-top: 1rem;
   width: 10rem;
+}
+
+a.game:hover {
+  box-shadow: 2px 2px 2px black;
+}
+
+a.game:active {
+  box-shadow: inset 2px 2px 2px black;
+}
+
+header.nav {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+div.namebar,
+nav {
+  margin: 1rem;
+}
+
+li.namebar-item {
+  list-style: none;
+}
+
+.header-button {
+  background-color: lightgray;
+  border: 1px solid black;
+  border-radius: 6px;
+  display: inline-block;
+  padding: .5rem 1rem;
+}
+
+.header-button:hover {
+  background-color: white;
+}
+
+form.login,
+form.register {
+  display: flex;
+  flex-direction: column;
+}
+
+form.login label,
+form.login input[type='submit'],
+form.register label,
+form.register input[type='submit'] {
+  margin-top: 1rem;
+}
+
+div.login,
+div.register {
+  background-color: #bdecff;
+  border: 1px solid gray;
+  margin: 2rem auto;
+  padding: 1rem;
+  width: 50%;
 }

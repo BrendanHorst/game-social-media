@@ -1,30 +1,22 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Register</title>
-	</head>
+{% extends "base.html" %}
+{% block content %}
 
-  <body>
-		<div class="register">
-			<h1>Register</h1>
-			<div class="links">
-				<a href="{{ url_for('auth.login') }}">Login</a>
-				<a href="{{ url_for('auth.register') }}" class="active">Register</a>
-			</div>
-			<form action="{{ url_for('auth.register') }}" method="post" autocomplete="off">
-				<label for="username">
-				</label>
-				<input type="text" name="username" placeholder="Username" id="username" required>
-				<label for="password">
-				</label>
-				<input type="password" name="password" placeholder="Password" id="password" required>
-				<label for="email">
-				</label>
-				<input type="email" name="email" placeholder="Email" id="email" required>
-				<div class="msg">{{ msg }}</div>
-				<input type="submit" value="Register">
-			</form>
-		</div>
-	</body>
-</html>
+<div class="register">
+	<h1>Register</h1>
+
+	<form action="{{ url_for('auth.register') }}" class ="register" method="post" autocomplete="off">
+		<label for="username">
+		</label>
+		<input type="text" name="username" placeholder="Username" id="username" required>
+		<label for="password">
+		</label>
+		<input type="password" name="password" placeholder="Password" id="password" required>
+		<label for="email">
+		</label>
+		<input type="email" name="email" placeholder="Email" id="email" required>
+		<div class="msg">{{ msg }}</div>
+		<input type="submit" value="Register">
+	</form>
+</div>
+
+{% endblock %}
