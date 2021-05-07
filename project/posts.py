@@ -11,7 +11,7 @@ def post_list(game_id):
 
     db = get_db()
 
-    posts = db.execute("SELECT username, users.id, title, body FROM posts JOIN users ON user_id=users.id WHERE game_id = ?", str(game_id)).fetchall()
+    posts = db.execute("SELECT posts.id AS post_id, username, users.id, title, body FROM posts JOIN users ON user_id=users.id WHERE game_id = ?", str(game_id)).fetchall()
     game = db.execute("SELECT * FROM games WHERE id = ?", str(game_id)).fetchone()
 
     return render_template("layouts/posts.html", posts=posts, game=game)
@@ -27,8 +27,6 @@ def comments(game_id, post_id):
         #If there is a post request and the user is logged in, insert their comment into the database
 
         comment = request.form['comment']
-
-        print('hi')
 
         db.execute("INSERT INTO comments(user_id, post_id, comment_id, content, hidden) VALUES (?, ?, NULL, ?, 0)", (g.user['id'], post_id, comment))
 

@@ -14,6 +14,15 @@
 
   <section>
 
+    {% if g.user %}
+      <form class="create-comment" method="post">
+
+        <textarea name="comment" rows="2" cols="80" placeholder="Leave a comment"></textarea>
+
+        <input type="submit" name="submit" value="Comment">
+      </form>
+    {% endif %}
+
     {% if comments == [] %}
       <p class="no-posts">No comments yet!</p>
     {% endif %}
@@ -26,14 +35,6 @@
       </section>
     {% endfor %}
 
-    {% if g.user %}
-      <form class="create-comment" method="post">
-
-        <textarea name="comment" rows="2" cols="80" placeholder="Leave a comment"></textarea>
-
-        <input type="submit" name="submit" value="Comment">
-      </form>
-    {% endif %}
   </section>
 
 {% endblock %}
