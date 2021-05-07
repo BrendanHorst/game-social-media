@@ -13,11 +13,16 @@
   <body>
     <header>
       <div class="namebar">
-      {% if g.user %}
-      <li class="namebar-item"><span class="namebar-name">{{ g.user['username'] }}</span>
-      <a class="namebar-logout" href="{{url_for('auth.logout')}}">log out</a></li>
-      {% endif %}
-    </script> </li>
+        {% if g.user %}
+          <li class="namebar-item"><span class="namebar-name">{{ g.user['username'] }}</span>
+          <a class="header-button" href="{{url_for('auth.logout')}}">log out</a></li>
+          </li>
+
+        {% else %}
+          <a class="header-button" href="{{url_for('auth.login')}}">Log In</a>
+          <a class="header-button" href="{{url_for('auth.register')}}">Register</a>
+
+        {% endif %}
       </div>
 
       <h1>{{ self.title() }}</h1>
