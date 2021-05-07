@@ -3,10 +3,11 @@ import sqlite3
 from flask import Blueprint, g, render_template, request
 
 from project.db import get_db
-
+from project.auth import ban_check
 bp = Blueprint('posts', __name__)
 
 @bp.route('/<int:game_id>/posts', methods=('GET', 'POST'))
+@ban_check
 def post_list(game_id):
 
     db = get_db()
@@ -42,6 +43,7 @@ def comments(game_id, post_id):
 
 
 @bp.route('/user/<int:user_id>/', methods=('GET',))
+@ban_check
 def profile(user_id):
 
     db = get_db()

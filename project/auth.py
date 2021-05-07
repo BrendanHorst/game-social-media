@@ -102,3 +102,20 @@ def login_required(view):
             return redirect(url_for('auth.login'))
         return view(**kwargs)
     return wrapped_view
+
+def ban_check(view):
+    @functools.wraps(view)
+    def wrapped_view(**kwargs):
+        if g.user is not None:
+            if g.user['role'] is 2:
+                return redirect(url_for('admin.banned'))
+        return view(**kwargs)
+    return wrapped_view
+
+def admin_check(view):
+    @functools.wraps(view)
+    def wrapped_view(**kwargs):
+        if g.user['role'] is not 1:
+            return redirect(url_for('index'))
+        return view(**kwargs)
+    return wrapped_view
