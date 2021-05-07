@@ -84,7 +84,14 @@ a.game:hover {
 a.game:active {
   box-shadow: inset 2px 2px 2px black;
 }
-div.namebar {
+
+header.nav {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+div.namebar,
+nav {
   margin: 1rem;
 }
 
