@@ -25,28 +25,29 @@ def register():
         password = request.form['password']
         email = request.form['email']
 
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM accounts WHERE username = %s', (username,))
-        account = cursor.fetchone()
+        cursor = get_db()
+        account = cursor.execute('SELECT * FROM users WHERE username = ?', (username,)).fetchone()
 
         if account:
             msg = 'Account already exists!'
-        elif not re.match(r'[^@]+@[^@]+\.[^@]+', email):
-            msg = 'Invalid email address!'
-        elif not re.match(r'[A-Za-z0-9]+', username):
-            msg = 'Username must contain only characters and numbers!'
+        # --Note: I don't know where you got 're' from, so I'm commenting this out for now so it doesn't break
+        #
+        #elif not re.match(r'[^@]+@[^@]+\.[^@]+', email):
+        #    msg = 'Invalid email address!'
+        #elif not re.match(r'[A-Za-z0-9]+', username):
+        #    msg = 'Username must contain only characters and numbers!'
         elif not username or not password or not email:
             msg = 'Please fill out the form!'
         else:
 
-            cursor.execute('INSERT INTO accounts VALUES (NULL, %s, %s, %s)', (username, password, email,))
-            mysql.connection.commit()
+            cursor.execute('INSERT INTO users (username, password, email, role) VALUES (?, ?, ?, 1)', (username, password, email,))
+            cursor.commit()
             msg = 'You have successfully registered!'
     elif request.method == 'POST':
 
         msg = 'Please fill out the form!'
 
-    return render_template('layouts/auth.html')
+    return render_template('layouts/register.html')
 
 
 
